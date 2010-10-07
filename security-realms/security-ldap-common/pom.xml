@@ -3,16 +3,19 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.sonatype.nexus.plugins.ldap</groupId>
-    <artifactId>nexus-ldap-plugin-parent</artifactId>
-    <version>1.9-SNAPSHOT</version>
+	<groupId>org.sonatype.security.realms</groupId>
+	<artifactId>security-realms</artifactId>
+	<version>2.0.0-SNAPSHOT</version>
   </parent>
 
   <groupId>org.sonatype.security.realms.ldap</groupId>
-  <artifactId>ldap-common</artifactId>
-  <name>Nexus : Core Plugins : OSS LDAP : Common</name>
+  <artifactId>security-ldap-common</artifactId>
+  <name>LDAP Realm Common</name>
   <description />
 
+ <properties>
+    <plexus-ldap-testsuite.version>1.4-SNAPSHOT</plexus-ldap-testsuite.version>
+ </properties>
 
   <dependencies>
 
@@ -35,19 +38,19 @@
     <dependency>
       <groupId>org.sonatype.security</groupId>
       <artifactId>security-system</artifactId>
-      <version>${plexus-security.version}</version>
+      <version>${project.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.sonatype.security.realms</groupId>
       <artifactId>security-xml-realm</artifactId>
-      <version>${plexus-security.version}</version>
+      <version>${project.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.codehaus.plexus</groupId>
       <artifactId>plexus-digest</artifactId>
-      <version>${plexus-digest.version}</version>
+      <version>1.1</version>
       <exclusions>
         <exclusion>
           <groupId>org.codehaus.plexus</groupId>
@@ -72,17 +75,16 @@
       <artifactId>xstream</artifactId>
       <version>1.3.1</version>
     </dependency>
-    <dependency>
+    <!-- <dependency>
       <groupId>commons-collections</groupId>
       <artifactId>commons-collections</artifactId>
       <version>3.2.1</version>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
 
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>jcl-over-slf4j</artifactId>
-      <version>${slf4j.version}</version>
       <scope>provided</scope>
     </dependency>
 
@@ -91,12 +93,12 @@
       <artifactId>junit</artifactId>
     </dependency>
 
-    <dependency>
+    <!-- <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
       <version>2.5</version>
       <scope>test</scope>
-    </dependency>
+    </dependency> -->
   </dependencies>
 
   <build>
@@ -144,11 +146,11 @@
           <packageWithVersion>false</packageWithVersion>
         </configuration>
         <dependencies>
-          <dependency>
+          <!--<dependency>
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
             <version>${commons-collections.version}</version>
-          </dependency>
+          </dependency> -->
         </dependencies>
       </plugin>
     </plugins>
